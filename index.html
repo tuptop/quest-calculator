@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Калькулятор стоимости</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="calculator" data-node-id="131:6687">
+      <div class="tabs" role="tablist" data-node-id="131:6690">
+        <button class="tab tab--active" type="button" role="tab" aria-selected="true" data-project-type="event" data-node-id="131:6691">
+          <span class="tab__label">Ивент</span>
+        </button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-project-type="quest" data-node-id="131:6693">
+          <span class="tab__label">Квест</span>
+        </button>
+      </div>
+
+      <section class="panel panel--main" data-node-id="131:6695">
+        <header class="intro" data-node-id="131:6696">
+          <h1 class="intro__title" data-node-id="131:6697">Калькулятор стоимости&nbsp;презентации</h1>
+          <p class="intro__text" data-node-id="131:6698">
+            Введите количество слайдов, отрисовок и&nbsp;сроки от&nbsp;передачи последних материалов в&nbsp;работу до&nbsp;дедлайна
+          </p>
+        </header>
+
+        <div class="options" data-node-id="131:6699">
+          <div class="option-row" data-node-id="131:6700">
+            <div class="option-label" data-node-id="131:6701">Слайды</div>
+            <div class="option-inputs" data-node-id="131:6703">
+              <div class="input-group" data-node-id="131:6704">
+                <div class="input-field">
+                  <label class="input-inner" for="slidesCount">
+                    <input class="input-number" id="slidesCount" type="number" min="0" max="200" step="1" value="20" />
+                    <span class="input-unit">шт</span>
+                  </label>
+                </div>
+                <input class="range" id="slidesCountRange" type="range" min="0" max="200" step="1" value="20" aria-label="Количество слайдов" />
+              </div>
+
+              <div class="input-group" data-node-id="131:6705">
+                <div class="input-field">
+                  <label class="input-inner" for="slidesPrice">
+                    <input class="input-number" id="slidesPrice" type="number" min="1500" max="2500" step="1" value="2500" />
+                    <span class="input-unit">₽ за&nbsp;шт.</span>
+                  </label>
+                </div>
+                <input class="range" id="slidesPriceRange" type="range" min="1500" max="2500" step="1" value="2500" aria-label="Цена за слайд" />
+              </div>
+            </div>
+          </div>
+
+          <div class="option-row" data-node-id="131:6706">
+            <div class="option-label" data-node-id="131:6707">Отрисовки</div>
+            <div class="option-inputs" data-node-id="131:6709">
+              <div class="input-group" data-node-id="131:6710">
+                <div class="input-field">
+                  <label class="input-inner" for="rendersCount">
+                    <input class="input-number" id="rendersCount" type="number" min="0" max="50" step="1" value="0" />
+                    <span class="input-unit">шт</span>
+                  </label>
+                </div>
+                <input class="range" id="rendersCountRange" type="range" min="0" max="50" step="1" value="0" aria-label="Количество отрисовок" />
+              </div>
+
+              <div class="input-group" data-node-id="131:6711">
+                <div class="input-field">
+                  <label class="input-inner" for="rendersPrice">
+                    <input class="input-number" id="rendersPrice" type="number" min="750" max="1500" step="1" value="1500" />
+                    <span class="input-unit">₽ за&nbsp;шт.</span>
+                  </label>
+                </div>
+                <input class="range" id="rendersPriceRange" type="range" min="750" max="1500" step="1" value="1500" aria-label="Цена за отрисовку" />
+              </div>
+            </div>
+          </div>
+
+          <div class="option-row" data-node-id="131:6712">
+            <div class="option-label option-label--sans" data-node-id="131:6713">Сроки</div>
+            <div class="option-inputs option-inputs--single" data-node-id="131:6715">
+              <div class="input-group" data-node-id="131:6716">
+                <div class="input-field">
+                  <label class="input-inner" for="deadlineDays">
+                    <input class="input-number" id="deadlineDays" type="number" min="0" max="30" step="1" value="14" />
+                    <span class="input-unit" id="deadlineUnit">дней</span>
+                    <span class="input-suffix" id="deadlinePercent">+00,00%</span>
+                    <span class="deadline-icon" id="deadlineIcon" aria-hidden="true">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7398 15.4521C15.9786 15.706 15.3303 18.2449 14.9101 22L13.2012 21.9721L13.4728 18.773L12.0329 18.5445L11.646 21.9467L10.1471 21.9238L10.347 19.225L8.89679 18.9965L8.54834 21.8984L6.66772 21.8781C7.02642 17.4198 6.69078 15.1449 3.41636 14.0075C1.87907 8.9296 4.47965 1.03354 13.2114 2.09735C21.9432 3.16116 22.0175 10.8947 19.7398 15.4521ZM8.87117 9.05655C5.59418 8.65794 4.83835 13.553 8.31774 13.977C11.4871 14.3654 12.1277 9.45262 8.87117 9.05655ZM15.5097 10.8795C13.2217 10.6002 12.6913 14.0252 15.1202 14.3223C17.3467 14.5914 17.7849 11.1562 15.5097 10.8795Z" fill="currentColor"/>
+                      </svg>
+                    </span>
+                  </label>
+                </div>
+                <input class="range" id="deadlineDaysRange" type="range" min="0" max="30" step="1" value="14" aria-label="Срок в днях" />
+              </div>
+              <div class="deadline-warning" id="deadlineWarning">Это минимально возможный срок</div>
+            </div>
+          </div>
+
+          <label class="checkbox" data-node-id="165:1072">
+            <input id="keyvisual" type="checkbox" />
+            <span class="checkbox-box" aria-hidden="true">
+              <svg class="checkbox-icon" viewBox="0 0 18 16" aria-hidden="true">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M0 8.06793L3.72822 6.64418L7.24537 12.0254L13.9522 0L18 1.53092L8.74257 16H5.4503L0 8.06793Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span class="checkbox-text">Кейвижуал <span class="checkbox-price" id="keyvisualPrice">+30 000 ₽</span></span>
+          </label>
+        </div>
+      </section>
+
+      <section class="panel panel--summary" aria-live="polite" aria-atomic="true" data-node-id="131:6722">
+        <div class="summary-lines" data-node-id="131:6723">
+          <div class="summary-line" data-node-id="131:6724">
+            <span>Вёрстка слайдов</span>
+            <span id="summarySlides">0 ₽</span>
+          </div>
+          <div class="summary-line" data-node-id="131:7131">
+            <span>Отрисовка</span>
+            <span id="summaryRenders">0 ₽</span>
+          </div>
+          <div class="summary-line" data-node-id="131:6727">
+            <span>Надбавка за срочность</span>
+            <span id="summaryUrgency">0 ₽</span>
+          </div>
+          <div class="summary-line" data-node-id="165:1093">
+            <span>Кейвижуал</span>
+            <span id="summaryKeyvisual">0 ₽</span>
+          </div>
+        </div>
+        <div class="summary-total" data-node-id="131:6730">
+          <span>Всего</span>
+          <span id="summaryTotal">0 ₽</span>
+          <div class="actions actions--mobile">
+            <button class="btn btn--secondary" type="button" aria-label="Сбросить">
+              <span class="btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 16" aria-hidden="true">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7633 9.71962C19.5943 11.2521 18.8966 12.6822 17.7857 13.7735C13.6925 17.7841 8.3667 15.8356 6.05611 12.1963L8.75119 10.8805C10.188 13.002 13.3301 14.098 15.7418 11.733C16.6396 10.8534 17.2743 9.93052 17.4233 8.98239L13.7992 11.0787L12.3017 8.53716L19.7817 5.40798L24 12.0773L21.4245 13.5428L19.7633 9.71962ZM8.20297 4.26698C7.40089 5.05468 6.80484 5.87483 6.58041 6.71841L10.2008 4.62748L11.6983 7.16905L4.2183 10.2982L0 3.62888L2.5755 2.16343L4.23118 5.97397C4.44857 4.55427 5.12572 3.24057 6.16281 2.22651C10.1456 -1.67596 15.2966 0.0634795 17.6992 3.51352L15.2231 5.15382C13.7992 3.01242 10.6331 1.88584 8.20297 4.26698Z" fill="currentColor"/>
+                </svg>
+              </span>
+            </button>
+            <button class="btn btn--primary" type="button" aria-label="Скопировать">
+              <span class="btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 18 22" aria-hidden="true">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M13.4616 22L0.89744 18.5322L1.37177 17.4467L12.6755 20.3912L16.4234 6.80701L14.0428 6.15293L13.0541 15.1448L8.57355 18.0939L0 16.4139L1.85055 0L14.4926 2.06551L14.192 4.81953L18 5.9831L13.4616 22ZM2.84375 1.46881L1.3495 15.6038L7.67166 16.6113L8.54015 12.6432L11.9829 13.3317L13.2211 3.16941L2.84375 1.46881Z" fill="currentColor"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="actions" data-node-id="131:6733">
+        <button class="btn btn--secondary" type="button" id="reset" data-node-id="131:6734">
+          <span class="btn-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 16" aria-hidden="true">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M19.7633 9.71962C19.5943 11.2521 18.8966 12.6822 17.7857 13.7735C13.6925 17.7841 8.3667 15.8356 6.05611 12.1963L8.75119 10.8805C10.188 13.002 13.3301 14.098 15.7418 11.733C16.6396 10.8534 17.2743 9.93052 17.4233 8.98239L13.7992 11.0787L12.3017 8.53716L19.7817 5.40798L24 12.0773L21.4245 13.5428L19.7633 9.71962ZM8.20297 4.26698C7.40089 5.05468 6.80484 5.87483 6.58041 6.71841L10.2008 4.62748L11.6983 7.16905L4.2183 10.2982L0 3.62888L2.5755 2.16343L4.23118 5.97397C4.44857 4.55427 5.12572 3.24057 6.16281 2.22651C10.1456 -1.67596 15.2966 0.0634795 17.6992 3.51352L15.2231 5.15382C13.7992 3.01242 10.6331 1.88584 8.20297 4.26698Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <span class="btn-text">Сбросить</span>
+        </button>
+        <button class="btn btn--primary" type="button" id="copy" data-node-id="131:6735">
+          <span class="btn-icon" aria-hidden="true">
+            <svg viewBox="0 0 18 22" aria-hidden="true">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M13.4616 22L0.89744 18.5322L1.37177 17.4467L12.6755 20.3912L16.4234 6.80701L14.0428 6.15293L13.0541 15.1448L8.57355 18.0939L0 16.4139L1.85055 0L14.4926 2.06551L14.192 4.81953L18 5.9831L13.4616 22ZM2.84375 1.46881L1.3495 15.6038L7.67166 16.6113L8.54015 12.6432L11.9829 13.3317L13.2211 3.16941L2.84375 1.46881Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <span class="btn-text">Скопировать</span>
+        </button>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
