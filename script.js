@@ -290,22 +290,30 @@ document.querySelectorAll(".btn--secondary").forEach((btn) => {
 });
 
 const getSummaryPayload = () => {
-  const summaryItems = [
-    { label: "Вёрстка слайдов", value: dom.summarySlides.textContent, node: dom.summarySlides },
-    { label: "Отрисовка", value: dom.summaryRenders.textContent, node: dom.summaryRenders },
-    { label: "Надбавка за срочность", value: dom.summaryUrgency.textContent, node: dom.summaryUrgency },
-    { label: "Кейвижуал", value: dom.summaryKeyvisual.textContent, node: dom.summaryKeyvisual },
-  ];
+  const slidesCost = roundToRubles(state.slidesCount * state.slidesPrice);
+  const rendersCost = roundToRubles(state.rendersCount * state.rendersPrice);
+  const rushCoef = rushCoefByDays(state.deadlineDays);
+  const keyvisualCost = state.keyvisual ? getActiveType().keyvisualPrice : 0;
+  const baseCost = slidesCost + rendersCost + keyvisualCost;
+  const rushAddon = roundToRubles(baseCost * rushCoef);
 
-  const payloadLines = summaryItems
-    .filter((item) => {
-      const line = item.node.closest(".summary-line");
-      return !line || line.style.display !== "none";
-    })
-    .map((item) => `${item.label}: ${item.value}`);
+  const lines = [];
 
-  payloadLines.push(`Всего: ${dom.summaryTotal.textContent}`);
-  return payloadLines.join("\n");
+  if (slidesCost > 0) {
+    lines.push(`Вёрстка слайдов: ${state.slidesCount}×${formatNumber(roundToRubles(state.slidesPrice))} — ${formatCurrency(slidesCost)}`);
+  }
+  if (rendersCost > 0) {
+    lines.push(`Отрисовка: ${state.rendersCount}×${formatNumber(roundToRubles(state.rendersPrice))} — ${formatCurrency(rendersCost)}`);
+  }
+  if (rushAddon > 0) {
+    lines.push(`Надбавка за срочность: ${formatPercent(rushCoef * 100)} — ${formatCurrency(rushAddon)}`);
+  }
+  if (keyvisualCost > 0) {
+    lines.push(`Кейвижуал: ${formatCurrency(keyvisualCost)}`);
+  }
+
+  lines.push(`Всего: ${dom.summaryTotal.textContent}`);
+  return lines.join("\n");
 };
 
 document.querySelectorAll(".btn--primary").forEach((btn) => {

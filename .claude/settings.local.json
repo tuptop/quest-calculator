@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh api repos/tuptop/quest-calculator/pages --method POST --input -)"
+    ]
+  }
+}
